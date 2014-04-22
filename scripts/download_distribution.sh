@@ -14,11 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-j2objc_version=0.9
-sha1_checksum=938ced80825a7e1e4d36ac06bef7130ff009a9e1
+j2objc_version=0.9.1
+sha1_checksum=e4a07aea293e0acabbd707cc8a3e5650db27a390
 
 echo "fetching j2objc"
-curl -OL https://github.com/google/j2objc/releases/download/0.9/j2objc-${j2objc_version}.zip
+curl -OL https://github.com/google/j2objc/releases/download/${j2objc_version}/j2objc-${j2objc_version}.zip
 echo "${sha1_checksum} j2objc-${j2objc_version}.zip" | shasum -c
 unzip -o -q j2objc-${j2objc_version}.zip
 mv j2objc-${j2objc_version} dist

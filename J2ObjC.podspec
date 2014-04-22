@@ -7,6 +7,8 @@ Pod::Spec.new do |s|
   s.author       = "Google Inc."
   s.source       = { :git => "https://github.com/goodow/j2objc.git", :tag => "v#{s.version}-lib" }
 
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
   s.requires_arc = false
   s.default_subspec = 'lib/jre'
 
@@ -21,7 +23,6 @@ Pod::Spec.new do |s|
     lib.osx.frameworks = 'ExceptionHandling'
     lib.xcconfig = { 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/J2ObjC/dist/lib"', \
       'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/J2ObjC/dist/include"' }
-    lib.libraries = 'z'
 
     lib.subspec 'jre' do |jre|
       jre.preserve_paths = 'dist'
@@ -31,7 +32,7 @@ Pod::Spec.new do |s|
 
     lib.subspec 'jsr305' do |jsr305|
       jsr305.dependency 'J2ObjC/lib/jre'
-      jsr305.libraries = 'jsr305', 'junit', 'mockito'
+      jsr305.libraries = 'jsr305'
     end
 
     lib.subspec 'junit' do |junit|
